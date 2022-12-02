@@ -14,6 +14,6 @@
         state: present
     - name: start artifactory
       service:
-        name: artifactory
+        name: artifactory.service
         state: started
         enabled: yes
