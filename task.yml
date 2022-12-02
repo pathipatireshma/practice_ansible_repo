@@ -1,6 +1,6 @@
 ---
 - name: Installing artifactory
-  hosts: artifactory_group
+  hosts: new_web_group
   become: yes
   tasks:
     - name: downloading url
