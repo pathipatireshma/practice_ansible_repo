@@ -1,0 +1,22 @@
+---
+- name: Installing artifactory
+  hosts: artifactory_group
+  become: yes
+  tasks:
+    - name: creating rpm file
+      file:
+        path: artifactory-pro
+        state: touch
+    - name: downloading url
+      get_url:
+        url: https://releases.jfrog.io/artifactory/artifactory-pro-rpms/jfrog-artifactory-pro/jfrog-artifactory-pro-[RELEASE].rpm
+        dest: artifactory-pro.rpm
+    - name: installing
+      yum:
+        name: artifactory-pro.rpm
+        state: present
+    - name: start artifactory
+      service:
+        name: arfifactory.service
+        state: started
+        enabled: yes
