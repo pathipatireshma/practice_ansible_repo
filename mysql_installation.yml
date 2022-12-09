@@ -10,14 +10,14 @@
     - name: Installing Mysql Rpm
       get_url:
         url: https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
-#        dest: ./mysql80-community-release-el7-5.noarch.rpm
+        dest: ./mysql80-community-release-el7-5.noarch.rpm
     - name: Installing Mysql
       yum:
-        name: mysql-community-server
+        name: mysql-server
         state: present
     - name: starting mysql service
       service:
-        name: mysql
+        name: mysqld
         state: started
         enabled: true
 
