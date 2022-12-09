@@ -13,7 +13,7 @@
         dest: ./mysql80-community-release-el7-5.noarch.rpm
     - name: Installing Mysql
       yum:
-        name: mysql-server
+        name: mysql-community-server
         state: present
     - name: starting mysql service
       service:
