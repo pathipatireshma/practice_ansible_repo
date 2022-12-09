@@ -12,7 +12,7 @@
         url: https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
         dest: ./mysql80-community-release-el7-5.noarch.rpm
     - name: Installing Mysql
-      package:
+      yum:
         name: mysql-community-server
         state: present
     - name: starting mysql service
