@@ -1,0 +1,9 @@
+---
+- name: Installing packages
+  hosts: artifactory_group
+  become: yes
+  vars:
+    - packages:
+        - git
+        - unzip
+    - mysql_path: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
