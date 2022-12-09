@@ -1,6 +1,6 @@
 ---
 - name: Installing MySql
-  hosts: artifactory_group
+  hosts: all
   become: yes
   tasks:
     - name: Installing packages
