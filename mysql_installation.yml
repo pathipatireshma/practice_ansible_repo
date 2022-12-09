@@ -7,8 +7,8 @@
       get_url:
         url: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
         dest: ./mysql80-community-release-el7-3.noarch.rpm
-    - name: adding mysql repositories
-      package:
+#    - name: adding mysql repositories
+#      package:
 #        name: mysql80-community-release-el7-3.noarch.rpm
 
     - name: installing mysql
