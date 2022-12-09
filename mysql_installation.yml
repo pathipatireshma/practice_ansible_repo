@@ -2,24 +2,28 @@
 - name: Installing MySql
   hosts: database_group
   become: yes
-  tasks:
-    - name: Installing packages
-      get_url:
-        url: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
-        dest: ./mysql80-community-release-el7-3.noarch.rpm
-    - name: adding mysql repositories
-      package:
-        name: mysql80-community-release-el7-3.noarch.rpm
-
-    - name: installing mysql
-      yum:
-        name: mysql-server
+  vars:
+    - packages:
+        name: epel
         state: present
-    - name: starting mysql
+  tasks:
+    - name: Installing Mysql Rpm
+      get_url:
+        url: https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+        dest: ./mysql80-community-release-el7-5.noarch.rpm
+    - name: Installing Mysql
+      package:
+        name: mysql-community-server
+        state: present
+    - name: starting mysql service
       service:
-        name: mysqld
+        name: mysql
         state: started
         enabled: true
+
+
+
+
 
 
 
