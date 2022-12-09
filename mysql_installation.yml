@@ -9,7 +9,7 @@
   tasks:
     - name: Installing Mysql Rpm
       get_url:
-        url: https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+        url: "https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm"
         dest: ./mysql80-community-release-el7-5.noarch.rpm
     - name: Installing Mysql
       yum:
