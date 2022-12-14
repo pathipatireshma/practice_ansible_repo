@@ -15,6 +15,11 @@
       yum:
         name: http://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
         state: present
+        return_content: yes
+        validate_certs: no
+        status_code:
+            - 200
+            - 403
     - name: "Installing MySQL"
       package:
         name: mysql-community-server
