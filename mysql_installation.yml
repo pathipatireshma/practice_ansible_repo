@@ -3,8 +3,8 @@
   hosts: database_group
   become: yes
   tasks:
-    - name: installing package
-      packages:
+    - name: Installing package
+      yum:
         name: epel
         state: present
 
