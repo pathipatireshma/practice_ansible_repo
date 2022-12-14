@@ -1,0 +1,22 @@
+---
+- name: Installing MySql
+  hosts: database_group
+  become: yes
+  tasks:
+    - name: Installing Mysql Rpm
+      get_url:
+        url: "https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm"
+        dest: ./mysql80-community-release-el7-5.noarch.rpm
+
+    - name: Install MySQL Server
+      ansible.builtin.yum:
+        name:
+          - mysql-community-server
+          - MySQL-python
+        state: installed
+
+    - name: Start MySQL Service
+      ansible.builtin.systemd:
+        name: mysqld
+        state: started
+        enabled: true
