@@ -1,21 +1,23 @@
 ---
-- name: Installing MySql
+- name: Install MySQL
   hosts: database_group
-  become: yes
+  become: true
+  become_method: sudo
+  gather_facts: true
   tasks:
-    ansible.builtin.copy:
-    src: mysql.repo
-    dest: /etc/yum.repos.d/mysql.repo
-
-- name: Install MySQL Server
-  ansible.builtin.yum:
-    name:
-      - mysql-community-server
-      - MySQL-python
-    state: installed
-
-- name: Start MySQL Service
-  ansible.builtin.systemd:
-    name: mysqld
-    state: started
-    enabled: true
+    - name: "Installing Repo"
+#      shell: sudo rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
+      get_url:
+        url: "http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm"
+        dest: /etc/yum.repos.d/mysql-community-source.repo
+      ignore_errors: yes
+    - name: "Installing MySQL 5.7"
+      package:
+        name: mysql-community-server
+        state: present
+    - name: Start the MySQL service
+      become: true
+      service:
+        name: mysqld
+        state: started
+        enabled: true
