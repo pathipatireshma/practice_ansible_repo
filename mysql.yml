@@ -2,7 +2,7 @@
 - name: Install MySQL
   hosts: database_group
   become: true
-  become_method: sudo
+#  become_method: sudo
   gather_facts: true
   tasks:
     - name: Installing package
@@ -13,6 +13,7 @@
       get_url:
         url: "http://dev.mysql.com/get/mysql57-community-release-el6-3.noarch.rpm"
         dest: ./mysql57-community-release-el6-3.noarch.rpm
+
       ignore_errors: yes
     - name: "Installing MySQL"
       yum:
