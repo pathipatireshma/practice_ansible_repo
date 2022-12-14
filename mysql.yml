@@ -6,10 +6,10 @@
   gather_facts: true
   tasks:
     - name: "Installing Repo"
-#      shell: sudo rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
-      get_url:
-        url: "http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm"
-        dest: /etc/yum.repos.d/mysql-community-source.repo
+      shell: sudo rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
+#      get_url:
+#        url: "http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm"
+#        dest: /etc/yum.repos.d/mysql-community-source.repo
       ignore_errors: yes
     - name: "Installing MySQL 5.7"
       package:
