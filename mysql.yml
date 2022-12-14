@@ -15,7 +15,7 @@
 ##      yum:
 ##        name: "http://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
     - name: "Installing MySQL"
-      yum:
+      package:
         name: mysql-community-server
         state: present
     - name: Start the MySQL service
