@@ -4,8 +4,8 @@
   become: yes
   tasks:
     - name: Installing package
-      yum_repository:
-        name: epel
+      yum:
+        name: epel-release
         state: present
 
     - name: Installing Mysql Rpm
