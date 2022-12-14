@@ -10,7 +10,7 @@
         name: epel-release
         state: present
     - name: Installing Repo
-      shell: sudo rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
+      shell: sudo rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-3.noarch.rpm
 #      get_url:
 #        url: "http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm"
 #        dest: /etc/yum.repos.d/mysql-community-source.repo
