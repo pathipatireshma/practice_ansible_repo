@@ -10,10 +10,10 @@
 
     - name: Installing Mysql Rpm
       get_url:
-        url: "http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm"
+        url: "http://dev.mysql.com/get/mysql57-community-release-el7-3.noarch.rpm"
 
 #        dest: ./mysql80-community-release-el7-5.noarch.rpm
-        dest: /etc/yum.repos.d/mysql-community.repo
+        dest: /etc/yum.repos.d/mysql-community-source.repo
     - name: Installing Mysql
       yum:
         name: mysql-community-server
