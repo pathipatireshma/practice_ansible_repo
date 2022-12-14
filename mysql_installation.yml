@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: Installing package
-      package:
+      yum_repository:
         name: epel
         state: present
 
