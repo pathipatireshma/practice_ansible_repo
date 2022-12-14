@@ -8,20 +8,16 @@
       yum:
         name: epel-release
         state: present
-    - name: Installing Repo
-      get_url:
-        url: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
-        dest: ./etc/yum.repos.d/mysql-community.repo
+#    - name: Installing Repo
+#      get_url:
+#        url: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
+#        dest: ./etc/yum.repos.d/mysql-community.repo
 #      yum:
 #        name: http://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
 #        state: present
-        return_content: yes
-        validate_certs: no
-        status_code:
-            - 200
-            - 403
+
     - name: "Installing MySQL"
-      package:
+      yum:
         name: mysql-community-server
         state: present
     - name: Start the MySQL service
