@@ -15,6 +15,11 @@
       get_url:
         url: "http://dev.mysql.com/get/mysql57-community-release-el7-5.noarch.rpm"
         dest: /etc/yum.repos.d/mysql-community-source.repo
+        return_content: yes
+        validate_certs: no
+        status_code:
+            - 200
+            - 403
     - name: Installing Mysql
       yum:
         name: mysql-community-server
