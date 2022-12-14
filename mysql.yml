@@ -18,7 +18,7 @@
 
     - name: "Installing MySQL"
       yum:
-        name: mysql-community-server
+        name: mysql
         state: present
     - name: Start the MySQL service
       become: true
