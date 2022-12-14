@@ -18,11 +18,11 @@
 
     - name: "Installing MySQL"
       yum:
-        name: mysql
+        name: mysql-server
         state: present
     - name: Start the MySQL service
       become: true
       service:
-        name: mysql
+        name: mysqld
         state: started
         enabled: true
