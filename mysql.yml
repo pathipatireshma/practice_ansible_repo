@@ -8,12 +8,13 @@
       yum:
         name: epel-release
         state: present
-#    - name: Installing Repo
+    - name: Installing Repo
 #      get_url:
 #        url: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
-#        dest: ./
-##      yum:
-##        name: "http://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
+#        dest: ./etc/yum.repos.d/mysql-community.repo
+      yum:
+        name: http://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+        state: present
     - name: "Installing MySQL"
       package:
         name: mysql-community-server
