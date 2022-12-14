@@ -11,6 +11,7 @@
     - name: Installing Mysql Rpm
       yum:
         name: https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+        state: present
 #        dest: ./mysql80-community-release-el7-5.noarch.rpm
 #        dest: /etc/yum.repos.d/mysql.repo
     - name: Installing Mysql
