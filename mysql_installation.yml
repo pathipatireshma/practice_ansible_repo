@@ -12,7 +12,7 @@
         state: present
 
     - name: Installing Mysql Rpm
-      get_url:
+      uri:
         url: "http://dev.mysql.com/get/mysql57-community-release-el7-5.noarch.rpm"
         dest: /etc/yum.repos.d/mysql-community-source.repo
         return_content: yes
