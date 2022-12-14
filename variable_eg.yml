@@ -19,7 +19,7 @@
   gather_facts: true
   tasks:
     - name: "Installing Repo"
-      shell: sudo rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
+      shell: rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
       ignore_errors: yes
     - name: "Installing MySQL 5.7"
       package: name=mysql-community-server state=present
