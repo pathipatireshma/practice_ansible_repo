@@ -22,6 +22,6 @@
         state: present
     - name: starting mysql service
       service:
-        name: mysql
+        name: mysqld
         state: started
         enabled: true
