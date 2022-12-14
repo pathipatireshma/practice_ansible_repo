@@ -13,8 +13,6 @@
       get_url:
         url: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
         dest: ./mysql80-community-release-el7-3.noarch.rpm
-
-      ignore_errors: yes
     - name: "Installing MySQL"
       yum:
         name: mysql-community-server
