@@ -3,25 +3,24 @@
   hosts: database_group
   become: yes
   become_method: sudo
-  gather_facts: ture
-
+  gather_facts: true
   tasks:
     - name: Installing package
       yum:
         name: epel-release
         state: present
-
     - name: Installing Mysql Rpm
-      uri:
-        url: "http://dev.mysql.com/get/mysql57-community-release-el7-5.noarch.rpm"
-        dest: /etc/yum.repos.d/mysql-community-source.repo
-        return_content: yes
-        validate_certs: no
-        status_code:
-            - 200
-            - 403
-    - name: Installing Mysql
       yum:
+        name: "http://dev.mysql.com/get/mysql57-community-release-el7-5.noarch.rpm"
+        state: present
+#        dest: /etc/yum.repos.d/mysql-community-source.repo
+#        return_content: yes
+#        validate_certs: no
+#        status_code:
+#            - 200
+#            - 403
+    - name: Installing Mysql
+      package:
         name: mysql-community-server
         state: present
     - name: starting mysql service
