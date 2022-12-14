@@ -9,10 +9,10 @@
         state: present
 
     - name: Installing Mysql Rpm
-      get_url:
-        url: "https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm"
+      yum:
+        name: "https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm"
 #        dest: ./mysql80-community-release-el7-5.noarch.rpm
-        dest: /etc/yum.repos.d/mysql.repo
+#        dest: /etc/yum.repos.d/mysql.repo
     - name: Installing Mysql
       yum:
         name: mysql-community-server
