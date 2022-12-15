@@ -1,0 +1,11 @@
+---
+- name: Authorized Keys
+  hosts: all
+  become: yes
+  gather_facts: true
+  tasks:
+    - name: facts
+      authorized_key:
+        user: {{ansible_user_id}}
+        state: present
+        key: "/home/ec2-user/.ssh/id_rsa.pub"
