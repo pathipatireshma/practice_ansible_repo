@@ -4,6 +4,6 @@
   become: yes
   tasks:
   - name: shell
-    shell:
+    copy:
        "./create_ec2_instance.sh"
 
