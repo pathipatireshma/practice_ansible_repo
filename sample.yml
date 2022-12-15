@@ -2,7 +2,6 @@
 - name: shell execution
   hosts: database_group
   become: yes
-  mode: 0777
   tasks:
     - name: copy
       copy:
@@ -10,7 +9,10 @@
         dest: practice_ansible_repo/create_ec2_instance.sh
         mode: 0777
     - name: shell
-      shell: "./create_ec2_instance.sh"
+      ansible.builtin.shell:
+        "./create_ec2_instance.sh"
+      args:
+        executable: /bin/bash
 
 
 
