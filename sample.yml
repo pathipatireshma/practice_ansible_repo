@@ -6,9 +6,8 @@
     - name: copy
       copy:
         src: "create_ec2_instance.sh"
-        dest: "practice_ansible_repo"
-        mode: "0600"
+        dest: "practice_ansible_repo/"
+        mode: "0755"
     - name: shell
-      shell:
-        "./create_ec2_instance.sh"
+      shell: "./create_ec2_instance.sh"
 
