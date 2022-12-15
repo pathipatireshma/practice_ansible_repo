@@ -3,9 +3,11 @@
   hosts: database_group
   become: yes
   tasks:
-  - name: shell
-    shell:
-      "./create_ec2_instance.sh"
-#    copy:
-#       src: "./create_ec2_instance.sh"
+    - name: copy
+      copy:
+        src: "create_ec2_instance.sh"
+        dest: "create_ec2_instance.sh"
+    - name: shell
+      shell:
+        "./create_ec2_instance.sh"
 
