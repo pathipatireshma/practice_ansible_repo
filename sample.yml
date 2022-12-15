@@ -13,3 +13,4 @@
         "./create_ec2_instance.sh"
       args:
         executable: /bin/bash
+        chdir: test
