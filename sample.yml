@@ -5,5 +5,5 @@
   tasks:
     name: shell
     shell:
-      "echo "hello world""
+       "hello world"
 
