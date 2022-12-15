@@ -11,21 +11,34 @@
 #
 #---
 
+#---
+#- name: Install MySQL
+#  hosts: database_group
+#  become: true
+#  become_method: sudo
+#  gather_facts: true
+#  tasks:
+#    - name: "Installing Repo"
+#      shell: rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
+#      ignore_errors: yes
+#    - name: "Installing MySQL 5.7"
+#      package: name=mysql-community-server state=present
+#    - name: Start the MySQL service
+#      become: true
+#      service:
+#        name: mysqld
+#        state: started
+#        enabled: true
+
 ---
-- name: Install MySQL
-  hosts: database_group
-  become: true
-  become_method: sudo
-  gather_facts: true
+- name: adding user
+  hosts: all
+  become: yes
+  vars:
+    user_name: test_user
   tasks:
-    - name: "Installing Repo"
-      shell: rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
-      ignore_errors: yes
-    - name: "Installing MySQL 5.7"
-      package: name=mysql-community-server state=present
-    - name: Start the MySQL service
-      become: true
-      service:
-        name: mysqld
-        state: started
-        enabled: true
+    - name: user
+      user:
+        name: "{{user_name}}"
+        state: present
+

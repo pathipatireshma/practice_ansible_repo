@@ -3,6 +3,7 @@
   hosts: all
   become: yes
   gather_facts: true
+
   tasks:
     - name: facts
       authorized_key:
