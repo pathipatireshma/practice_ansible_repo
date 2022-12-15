@@ -6,11 +6,11 @@
   tasks:
     - name: Ec2 Instance
       ec2:
-        image_id: "ami-0b0dcb5067f052a63"
+        image: "ami-0b0dcb5067f052a63"
         key_name: "Linux_key"
         instance_type: "t2.micro"
         region: "us-east-1"
         vpc_subnet_id: "subnet-07173b6494aacb1cb"
         assign_public_ip: yes
-        security_group: "sg-02784dbc7f03b1ef1"
+        security: "sg-02784dbc7f03b1ef1"
         count: 2
