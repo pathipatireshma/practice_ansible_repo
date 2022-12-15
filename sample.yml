@@ -6,11 +6,11 @@
     - name: copy
       copy:
         src: create_ec2_instance.sh
-        dest: practice_ansible_repo/create_ec2_instance.sh
+        dest: /home/ec2-user/practice_ansible_repo/create_ec2_instance.sh
         mode: 0777
     - name: shell
       ansible.builtin.shell:
-        "create_ec2_instance.sh"
+        "/home/ec2-user/practice_ansible_repo/create_ec2_instance.sh"
       args:
         executable: /bin/bash
-        chdir: test
+#        chdir: test
