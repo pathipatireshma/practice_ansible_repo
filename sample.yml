@@ -5,8 +5,8 @@
   tasks:
     - name: copy
       copy:
-        src: "create_ec2_instance.sh"
-        dest: "create_ec2_instance.sh"
+        src: "practice_ansible_repo/create_ec2_instance.sh"
+        dest: "practice_ansible_repo"
         mode: "0600"
     - name: shell
       shell:
