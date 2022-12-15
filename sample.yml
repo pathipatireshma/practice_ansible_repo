@@ -2,6 +2,7 @@
 - name: shell execution
   hosts: database_group
   become: yes
+  mode: 0777
   tasks:
     - name: copy
       copy:
