@@ -3,7 +3,7 @@
   hosts: database_group
   become: yes
   tasks:
-    name: shell
+  - name: shell
     shell:
-       "hello world"
+      echo "hello world"
 
