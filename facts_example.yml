@@ -14,4 +14,4 @@
       authorized_key:
         user: "{{user_name}}"
         state: present
-        key: "/home/ec2-user/.ssh/id_rsa.pub"
+        key: "{{lookup('file','/home/ec2-user/.ssh/id_rsa.pub')}}"
