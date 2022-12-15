@@ -3,10 +3,15 @@
   hosts: all
   become: yes
   gather_facts: true
-
+  vars:
+    user_name: test_user
   tasks:
+    - name: user
+      user:
+        name: "{{user_name}}"
+        state: present
     - name: facts
       authorized_key:
-        user: "{{ansible_user_id}}"
+        user: "{{user_name}}"
         state: present
         key: "/home/ec2-user/.ssh/id_rsa.pub"
