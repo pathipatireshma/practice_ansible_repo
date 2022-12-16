@@ -11,7 +11,7 @@
   tasks:
     - name: Downloading packages
       yum:
-        loop: {{ packages }}
+        loop: "{{ packages }}"
       state: present
 #      notify: start the service
 #
