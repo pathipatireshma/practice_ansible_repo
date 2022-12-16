@@ -18,5 +18,5 @@
 #        security_groups: ["sg-02784dbc7f03b1ef1"]
 #        group: my_sg_test
         count: 2
-#        aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
-#        aws_secret_key: "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"
+        aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
+        aws_secret_key: "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"
