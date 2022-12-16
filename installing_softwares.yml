@@ -12,7 +12,7 @@
     - name: Downloading packages
       yum:
         loop: "{{ packages }}"
-      state: present
+        state: present
 #      notify: start the service
 #
 #  handlers:
