@@ -16,7 +16,7 @@
 #        group_id: ["sg-02784dbc7f03b1ef1"]
 #          group_name: ["my_sg_test"]
 #        security_groups: ["sg-02784dbc7f03b1ef1"]
-        group: my_sg_test
+#        group: my_sg_test
         count: 2
         aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
         aws_secret_key: "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"
