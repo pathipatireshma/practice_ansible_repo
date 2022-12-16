@@ -11,7 +11,7 @@
   tasks:
     - name: download package
       yum:
-        loop: {{ packages }}
+        loop: "{{ packages }}"
       state: present
 #    - name: get mysql repo
 #      get_url:
