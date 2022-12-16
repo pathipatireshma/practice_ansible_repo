@@ -4,6 +4,9 @@
   become: yes
   gather_facts: true
   tasks:
+    - name: facts
+      set_fact:
+        one_fact: ansible_python_interpreter=/usr/bin/python3
     - name: Get instances facts
       ec2_instance_facts:
           aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
