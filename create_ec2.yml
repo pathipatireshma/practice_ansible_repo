@@ -4,11 +4,11 @@
   become: yes
   gather_facts: true
   vars:
-    ansible_python_interpreter: /usr/bin/python3.7
+    ansible_python_interpreter: /usr/bin/python3.6
   tasks:
     - name: facts
       set_fact:
-        one_fact: ansible_python_interpreter=/usr/bin/python3
+        one_fact: ansible_python_interpreter=/usr/bin/python3.6
     - name: Get instances facts
       ec2_instance_facts:
           aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
