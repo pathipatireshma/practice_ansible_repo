@@ -3,25 +3,26 @@
   hosts: all
   become: yes
   vars:
-    - packages:
-        - nginx
-        - git
-        - unzip
-    - mysql_path: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
+    packages:
+#        - nginx
+      - git
+#        - unzip
+#    - mysql_path: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
   tasks:
-    - name : download package
+    - name: download package
       yum:
-        loop: {{ packages }}
-      state: present
-    - name: get mysql repo
-      get_url:
-        url: {{mysql_path}}
-    - name: {{create files}}
-      file:
-        path: {{item}}
-        state: touch
-      with_items:
-        - index.html
-        - test.html
+        name: "{{ packages }}"
+#        loop: "{{ packages }}"
+        state: present
+#    - name: get mysql repo
+#      get_url:
+#        url: {{mysql_path}}
+#    - name: {{create files}}
+#      file:
+#        path: {{item}}
+#        state: touch
+#      with_items:
+#        - index.html
+#        - test.html
 
 

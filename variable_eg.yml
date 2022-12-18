@@ -1,9 +1,44 @@
+#---
+#- name: Installing packages
+#  hosts: artifactory_group
+#  become: yes
+#  vars:
+#    - packages:
+#        - git
+#        - unzip
+#    - mysql_path: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
+#
+#
+#---
+
+#---
+#- name: Install MySQL
+#  hosts: database_group
+#  become: true
+#  become_method: sudo
+#  gather_facts: true
+#  tasks:
+#    - name: "Installing Repo"
+#      shell: rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
+#      ignore_errors: yes
+#    - name: "Installing MySQL 5.7"
+#      package: name=mysql-community-server state=present
+#    - name: Start the MySQL service
+#      become: true
+#      service:
+#        name: mysqld
+#        state: started
+#        enabled: true
+
 ---
-- name: Installing packages
-  hosts: artifactory_group
+- name: adding user
+  hosts: all
   become: yes
   vars:
-    - packages:
-        - git
-        - unzip
-    - mysql_path: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
+    user_name: test_user
+  tasks:
+    - name: user
+      user:
+        name: "{{user_name}}"
+        state: present
+

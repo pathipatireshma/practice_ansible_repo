@@ -1,0 +1,37 @@
+---
+- name: Create Ec2 Instance
+  hosts: localhost
+  become: yes
+  gather_facts: true
+#  vars:
+#    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: facts
+      set_fact:
+        one_fact: ansible_python_interpreter=/usr/bin/python3
+    - name: Get instances facts
+      ec2_instance_facts:
+          aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
+          aws_secret_key: "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"
+          region: "us-east-1"
+      register: result
+    - name: Ec2 Instance
+      ec2:
+        image: "ami-0b0dcb5067f052a63"
+        key_name: "Linux_key"
+        instance_type: "t2.micro"
+        region: "us-east-1"
+        vpc_subnet_id: "subnet-07173b6494aacb1cb"
+        assign_public_ip: yes
+#        groups:
+#        group_id: ["sg-02784dbc7f03b1ef1"]
+#          group_name: ["my_sg_test"]
+#        security_groups: ["sg-02784dbc7f03b1ef1"]
+        group: "my_sg_test"
+        count: 5
+#        aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
+#        aws_secret_key: "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"
+
+
+
+

@@ -1,0 +1,27 @@
+---
+- name: Install MySQL
+  hosts: database_group
+  become: yes
+  gather_facts: true
+  tasks:
+    - name: Installing package
+      yum:
+        name: epel-release
+        state: present
+#    - name: Installing Repo
+#      get_url:
+#        url: "https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm"
+#        dest: ./etc/yum.repos.d/mysql-community.repo
+#      yum:
+#        name: http://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+#        state: present
+
+    - name: "Installing MySQL"
+      yum:
+        name: mysql
+        state: present
+    - name: starting mysql service
+      service:
+        name: mysqld
+        state: started
+        enabled: true
