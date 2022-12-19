@@ -5,16 +5,9 @@
   gather_facts: true
   vars:
     - packages:
-        - java-1.8.0-openjdk-devel
-#        - unzip
-#    - postgress_path: http://yum.postgresql.org/9.3/redhat/rhel-5-x86_64/pgdg-centos93-9.3-1.noarch.rpm
+        - java-11-openjdk-devel
   tasks:
     - name: Downloading packages
       yum:
         loop: "{{ packages }}"
         state: present
-#      notify: start the service
-#
-#  handlers:
-#    - name: start the service
-#      service:

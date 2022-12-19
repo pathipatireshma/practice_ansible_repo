@@ -22,7 +22,7 @@
 
     - name: Ec2 Instance
       ec2:
-        image: "ami-0b0dcb5067f052a63"
+        image: "ami-00d48a21603b2119b"
         key_name: "Linux_key"
         instance_type: "t2.micro"
         region: "us-east-1"
@@ -33,6 +33,6 @@
 #          group_name: ["my_sg_test"]
 #        security_groups: ["sg-02784dbc7f03b1ef1"]
         group: "my_sg_test"
-        count: 5
+        count: 6
 #        aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
 #        aws_secret_key: "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"
