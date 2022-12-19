@@ -14,4 +14,4 @@
         name: "{{ packages }}"
         state: present
       get_url:
-        url: "{{wildfly_release_url}}"
+        url: "{{ wildfly_release_url }}"
