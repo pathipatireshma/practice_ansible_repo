@@ -11,7 +11,6 @@
     - wildfly_release_url:
         - "https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.tar.gz"
 #          - "https://api.github.com/repos/wildfly/wildfly/releases/latest"
-
   tasks:
     - name: Downloading packages
       yum:
