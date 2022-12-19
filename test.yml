@@ -1,7 +1,21 @@
 ---
-- name: test facts
+#- name: test facts
+#  hosts: localhost
+#  become: yes
+#  gather_facts: true
+#  vars:
+#    ansible_python_interpreter: /usr/bin/python3
+
+---
+- name: Installing jboss
   hosts: localhost
   become: yes
   gather_facts: true
   vars:
-    ansible_python_interpreter: /usr/bin/python3
+    - packages:
+        - java-11-openjdk-devel
+  tasks:
+    - name: Downloading packages
+      yum:
+        name: "{{ packages }}"
+        state: present
