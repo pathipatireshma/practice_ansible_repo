@@ -1,6 +1,6 @@
 ---
 - name: Installing jboss
-  hosts: localhost
+  hosts: localhosts
   become: yes
   gather_facts: true
   vars:
@@ -11,3 +11,4 @@
       yum:
         loop: "{{ packages }}"
         state: present
+
