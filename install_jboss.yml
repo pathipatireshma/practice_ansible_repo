@@ -9,7 +9,7 @@
         - wget
         - curl
     - wildfly_release_url:
-          - "https://api.github.com/repos/wildfly/wildfly/releases/latest"
+#          - "https://api.github.com/repos/wildfly/wildfly/releases/latest"
           - "https://github.com/wildfly/wildfly/releases/download/${WILDFLY_RELEASE}/wildfly-${WILDFLY_RELEASE}.tar.gz"
   tasks:
     - name: Downloading packages
@@ -19,9 +19,9 @@
       with_items: "{{ packages }}"
     - name: wildfly url
       get_url:
-        url: "{{ item }}"
-        dest: ./repos/wildfly/wildfly/releases/latest
-        with_items: "{{ wildfly_release_url }}"
+        url: "{{ wildfly_release_url }}"
+        dest: ./wildfly/releases/
+#        with_items: "{{ wildfly_release_url }}"
     - name: unarchiving tar
       ansible.builtin.unarchive:
         src: wildfly-${WILDFLY_RELEASE}.tar.gz
