@@ -1,6 +1,6 @@
 ---
 - name: Installing jboss
-  hosts: localhosts
+  hosts: localhost
   become: yes
   gather_facts: true
   vars:
