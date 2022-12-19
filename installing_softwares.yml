@@ -9,6 +9,6 @@
   tasks:
     - name: Downloading packages
       yum:
-        loop: "{{ packages }}"
+        name: "{{ packages }}"
         state: present
 
