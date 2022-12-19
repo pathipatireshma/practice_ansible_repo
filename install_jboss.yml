@@ -18,4 +18,5 @@
     - name: wildfly url
       get_url:
         url: "{{ wildfly_release_url }}"
+        dest: wildfly/releases/latest
 
