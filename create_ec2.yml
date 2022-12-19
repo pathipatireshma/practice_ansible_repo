@@ -16,7 +16,7 @@
           aws_secret_key: "81UMxz28iTb9Rw2H+RtT18r/b0UVhnikEmwhA19n"
           region: "us-east-1"
       register: result
-    - name: ansible-setup facts
+#    - name: ansible-setup facts
 #      ansible.builtin.setup:
 #        fact_path: "/etc/ansible/facts.d"
 
