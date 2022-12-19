@@ -18,6 +18,7 @@
     - name: ansible-setup facts
       ansible.builtin.setup:
         fact_path: "/etc/ansible/facts.d"
+        ansible_nodename: "{{ansible_nodename}}"
     - name: Ec2 Instance
       ec2:
         image: "ami-0b0dcb5067f052a63"
