@@ -14,5 +14,6 @@
       yum:
         name: "{{ packages }}"
         state: present
+    - name: wildfly url
       get_url:
-        url: "{{ wildfly_release_url }}"
+        with_items: "{{ wildfly_release_url }}"
