@@ -9,8 +9,9 @@
         - wget
         - curl
     - wildfly_release_url:
+        - "https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.tar.gz"
 #          - "https://api.github.com/repos/wildfly/wildfly/releases/latest"
-          - "https://github.com/wildfly/wildfly/releases/download/${WILDFLY_RELEASE}/wildfly-${WILDFLY_RELEASE}.tar.gz"
+
   tasks:
     - name: Downloading packages
       yum:
@@ -20,10 +21,10 @@
     - name: wildfly url
       get_url:
         url: "{{ wildfly_release_url }}"
-        dest: ./wildfly/releases/
+        dest: /home/centos/
 #        with_items: "{{ wildfly_release_url }}"
     - name: unarchiving tar
       ansible.builtin.unarchive:
-        src: wildfly-${WILDFLY_RELEASE}.tar.gz
+        src: wildfly-27.0.1.Final.tar.gz
         dest: ./opt/wildfly
 
