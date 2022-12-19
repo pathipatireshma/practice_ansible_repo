@@ -9,6 +9,7 @@
     - name: facts
       set_fact:
         one_fact: ansible_python_interpreter=/usr/bin/python3.6
+        ansible_nodename: "{{ansible_nodename}}"
     - name: Get instances facts
       ec2_instance_facts:
           aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
@@ -16,9 +17,9 @@
           region: "us-east-1"
       register: result
     - name: ansible-setup facts
-      ansible.builtin.setup:
-        fact_path: "/etc/ansible/facts.d"
-        ansible_nodename: "{{ansible_nodename}}"
+#      ansible.builtin.setup:
+#        fact_path: "/etc/ansible/facts.d"
+
     - name: Ec2 Instance
       ec2:
         image: "ami-0b0dcb5067f052a63"
