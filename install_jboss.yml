@@ -17,6 +17,4 @@
     - name: wildfly url
       get_url:
         url: "{{ item }}"
-        with_items:
-          - "{{ wildfly_release_url }}"
-#        "{{ wildfly_release_url }}"
+      with_items: "{{ wildfly_release_url }}"
