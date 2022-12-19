@@ -21,7 +21,8 @@
     - name: wildfly url
       get_url:
         url: "{{ wildfly_release_url }}"
-        dest: /home/centos/practice_ansible_repo
+        dest: /home/centos/
+        mode: '0755'
 #        with_items: "{{ wildfly_release_url }}"
     - name: unarchiving tar
       ansible.builtin.unarchive:
