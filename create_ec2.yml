@@ -11,7 +11,6 @@
 #        ansible_python_interpreter=/usr/bin/python2.7
 #        ansible_nodename: "{{ansible_nodename}}"
     - name: Get instances facts
-      ansible_python_interpreter: /usr/bin/python2.7
       ec2_instance_facts:
           aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
           aws_secret_key: "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"
@@ -21,6 +20,7 @@
 #      ansible.builtin.setup:
 #        fact_path: "/etc/ansible/facts.d"
     - name: Ec2 Instance
+      ansible_python_interpreter: /usr/bin/python2.7
       ec2:
         image: "ami-00d48a21603b2119b"
         key_name: "Linux_key"
