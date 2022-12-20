@@ -9,7 +9,7 @@
         - wget
         - curl
     - wildfly_release_url:
-        - ansible-galaxy collection install middleware_automation.wildfly
+#        - ansible-galaxy collection install middleware_automation.wildfly
         - https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.tar.gz
 #          - "https://api.github.com/repos/wildfly/wildfly/releases/latest"
   tasks:
@@ -21,7 +21,7 @@
     - name: wildfly url
       get_url:
         url: "{{ wildfly_release_url }}"
-        dest: /home/centos/
+        dest: wildfly-27.0.1.Final
         mode: '0755'
 #        with_items: "{{ wildfly_release_url }}"
     - name: unarchiving tar

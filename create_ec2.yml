@@ -3,10 +3,10 @@
   hosts: localhost
   become: yes
   gather_facts: true
-#  vars:
-#    ansible_python_interpreter: /usr/bin/python2.7
+  vars:
+    ansible_python_interpreter: /usr/bin/python2.7
   tasks:
-#    - name: facts
+    - name: facts
 #      set_fact:
 #        ansible_python_interpreter=/usr/bin/python2.7
 #        ansible_nodename: "{{ansible_nodename}}"
@@ -17,7 +17,6 @@
           region: "us-east-1"
       register: result
     - name: ansible-setup facts
-      ansible_python_interpreter: /usr/bin/python2.7
       ansible.builtin.setup:
         fact_path: "/etc/ansible/facts.d"
     - name: Ec2 Instance
