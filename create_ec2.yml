@@ -1,54 +1,54 @@
-#---
-#- name: Create Ec2 Instance
-#  hosts: localhost
-#  become: yes
-#  gather_facts: true
-##  vars:
-##    ansible_python_interpreter: /usr/bin/python3.7
-#  tasks:
-##    - name: facts
-##      set_fact:
-##        one_fact: ansible_python_interpreter=/usr/bin/python3.7
-##        ansible_nodename: "{{ansible_nodename}}"
-#    - name: Get instances facts
-#      ec2_instance_facts:
-#          aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
-#          aws_secret_key: "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"
-#          region: "us-east-1"
-#      register: result
-##    - name: ansible-setup facts
-##      ansible.builtin.setup:
-##        fact_path: "/etc/ansible/facts.d"
-#
-#    - name: Ec2 Instance
-#      ec2:
-#        image: "ami-00d48a21603b2119b"
-#        key_name: "Linux_key"
-#        instance_type: "t2.micro"
-#        region: "us-east-1"
-#        vpc_subnet_id: "subnet-07173b6494aacb1cb"
-#        assign_public_ip: yes
-##        groups:
-##        group_id: ["sg-02784dbc7f03b1ef1"]
-##          group_name: ["my_sg_test"]
-##        security_groups: ["sg-02784dbc7f03b1ef1"]
-#        group: "my_sg_test"
-#        count: 6
-##        aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
-##        aws_secret_key: "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"
 ---
-- name: Ansible test
+- name: Create Ec2 Instance
   hosts: localhost
+  become: yes
+  gather_facts: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python2.7
   tasks:
-    - name: launching AWS instance using Ansible
+    - name: facts
+      set_fact:
+        one_fact: ansible_python_interpreter=/usr/bin/python2.7
+#        ansible_nodename: "{{ansible_nodename}}"
+    - name: Get instances facts
+      ec2_instance_facts:
+          aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
+          aws_secret_key: "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"
+          region: "us-east-1"
+      register: result
+#    - name: ansible-setup facts
+#      ansible.builtin.setup:
+#        fact_path: "/etc/ansible/facts.d"
+
+    - name: Ec2 Instance
       ec2:
-        key_name: Linux_key
-        instance_type: t2.micro
-        image: ami-00d48a21603b2119b
-        region: us-east-1
-        wait: yes
-        count: 1
-        vpc_subnet_id: subnet-02470c5e30cf1098d
+        image: "ami-00d48a21603b2119b"
+        key_name: "Linux_key"
+        instance_type: "t2.micro"
+        region: "us-east-1"
+        vpc_subnet_id: "subnet-07173b6494aacb1cb"
         assign_public_ip: yes
-        aws_access_key: AKIAZFMJQOUDEY5P6QIR
-        aws_secret_key: 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
+#        groups:
+#        group_id: ["sg-02784dbc7f03b1ef1"]
+#          group_name: ["my_sg_test"]
+#        security_groups: ["sg-02784dbc7f03b1ef1"]
+        group: "my_sg_test"
+        count: 6
+#        aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
+#        aws_secret_key: "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"
+#---
+#- name: Ansible test
+#  hosts: localhost
+#  tasks:
+#    - name: launching AWS instance using Ansible
+#      ec2:
+#        key_name: Linux_key
+#        instance_type: t2.micro
+#        image: ami-00d48a21603b2119b
+#        region: us-east-1
+#        wait: yes
+#        count: 1
+#        vpc_subnet_id: subnet-02470c5e30cf1098d
+#        assign_public_ip: yes
+#        aws_access_key: AKIAZFMJQOUDEY5P6QIR
+#        aws_secret_key: 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
