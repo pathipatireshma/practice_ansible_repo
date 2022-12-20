@@ -3,15 +3,15 @@
   hosts: localhost
   become: yes
   gather_facts: true
-  vars:
-    ansible_python_interpreter: /usr/bin/python2.7
+#  vars:
+#    ansible_python_interpreter: /usr/bin/python2.7
   tasks:
-    - name: facts
-      ansible_python_interpreter: /usr/bin/python2.7
+#    - name: facts
 #      set_fact:
 #        ansible_python_interpreter=/usr/bin/python2.7
 #        ansible_nodename: "{{ansible_nodename}}"
     - name: Get instances facts
+      ansible_python_interpreter: /usr/bin/python2.7
       ec2_instance_facts:
           aws_access_key: "AKIAZFMJQOUDEY5P6QIR"
           aws_secret_key: "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"
