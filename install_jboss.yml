@@ -28,4 +28,5 @@
       ansible.builtin.unarchive:
         src: wildfly-27.0.1.Final.tar.gz
         dest: ./opt/wildfly
+        remote_src: yes
 
