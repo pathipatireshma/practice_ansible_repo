@@ -68,7 +68,7 @@
         dest: /opt/wildfly/bin/
         owner: wildfly
         group: wildfly
-        mode: "0755"
+        mode: "0700"
     - name: setting owner for wildfly
       file:
         path: /opt/wildfly
