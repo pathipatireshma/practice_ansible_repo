@@ -66,11 +66,11 @@
         owner: wildfly
         group: wildfly
         mode: "0755"
-    - name: setting owner for wildfly
-      win_owner:
-        path: /opt/wildfly
-        user: wildfly
-        recurse: no
+#    - name: setting owner for wildfly
+#      win_owner:
+#        path: /opt/wildfly
+#        user: wildfly
+#        recurse: yes
     - name: reloading systemd service
       systemd:
         daemon_reload: yes
