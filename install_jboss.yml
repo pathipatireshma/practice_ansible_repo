@@ -8,8 +8,9 @@
         - java-11-openjdk-devel
         - wget
         - curl
-#    - shell commands:
-#        - "sudo semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'"
+    - shell_commands:
+        - "sudo semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'"
+        - "sudo restorecon -Rv /opt/wildfly/bin/"
 #    - wildfly_release_url:
 #        - ansible-galaxy collection install middleware_automation.wildfly
 #        - "https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.tar.gz"
@@ -87,10 +88,12 @@
 #      ansible.builtin.command: restorecon -Rv /opt/wildfly/bin/
     - name: Configure SELinux
       shell:
-        sudo semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'
-    - name: Apply new SELinux file context to filesystem
-      shell:
-        "sudo restorecon -Rv /opt/wildfly/bin/"
+        "{{ item }}"
+      with_items: "{{ shell_commands }}"
+#        "sudo semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'"
+#    - name: Apply new SELinux file context to filesystem
+#      shell:
+#        "sudo restorecon -Rv /opt/wildfly/bin/"
     - name : starting wildfly service
       service:
         name: wildfly
