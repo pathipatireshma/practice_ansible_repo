@@ -70,7 +70,7 @@
       win_owner:
         path: /opt/wildfly
         user: wildfly
-        recurse: yes
+        recurse: no
     - name: reloading systemd service
       systemd:
         daemon_reload: yes
