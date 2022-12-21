@@ -26,7 +26,7 @@
 #        with_items: "{{ wildfly_release_url }}"
     - name: unarchiving tar
       ansible.builtin.unarchive:
-        src: wildfly-27.0.1.tar.gz
+        src: "/home/centos/wildfly-27.0.1.Final.tar.gz"
         dest: /opt/wildfly
         remote_src: yes
 
