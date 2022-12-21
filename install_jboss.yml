@@ -29,4 +29,9 @@
         src: "/home/centos/wildfly-27.0.1.Final.tar.gz"
         dest: /opt/wildfly
         remote_src: yes
+    - name: adding a system group
+      group:
+        name: wildfly
+        state: present
+        system: true
 
