@@ -40,5 +40,10 @@
         group: wildfly
         state: present
         system: true
+    - name: creating directory
+      file:
+        path: /etc/wildfly
+        state: directory
+        mode: "0755"
 
 
