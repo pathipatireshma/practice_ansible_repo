@@ -45,5 +45,26 @@
         path: /etc/wildfly
         state: directory
         mode: "0755"
+    - name: copying configuration file
+      copy:
+        src: /opt/wildfly/docs/contrib/scripts/systemd/wildfly.conf
+        dest: /etc/wildfly/
+        owner: wildfly
+        group: wildfly
+        mode: "0644"
+    - name: copying service file
+      copy:
+        src: /opt/wildfly/docs/contrib/scripts/systemd/wildfly.service
+        dest: /etc/systemd/system/
+        owner: wildfly
+        group: wildfly
+        mode: "0644"
+    - name: copying launch file
+      copy:
+        src: /opt/wildfly/docs/contrib/scripts/systemd/launch.sh
+        dest: /opt/wildfly/bin/
+        owner: wildfly
+        group: wildfly
+        mode: "0644"
 
 
