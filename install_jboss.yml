@@ -8,9 +8,9 @@
         - java-11-openjdk-devel
         - wget
         - curl
-    - wildfly_release_url:
+#    - wildfly_release_url:
 #        - ansible-galaxy collection install middleware_automation.wildfly
-        - "http://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.tar.gz"
+#        - "https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.tar.gz"
 #          - "https://api.github.com/repos/wildfly/wildfly/releases/latest"
   tasks:
     - name: Downloading packages
@@ -20,8 +20,8 @@
       with_items: "{{ packages }}"
     - name: wildfly url
       get_url:
-        url: "{{ wildfly_release_url }}"
-        dest: /etc/wildfly
+        url: "https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.tar.gz"
+        dest: /home/centos
         mode: '0755'
 #        with_items: "{{ wildfly_release_url }}"
     - name: unarchiving tar
