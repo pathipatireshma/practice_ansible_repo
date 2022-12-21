@@ -34,4 +34,11 @@
         name: wildfly
         state: present
         system: true
+    - name: adding a system user
+      user:
+        name: wildfly
+        group: wildfly
+        state: present
+        system: true
+
 
