@@ -87,7 +87,7 @@
 #      ansible.builtin.command: restorecon -Rv /opt/wildfly/bin/
     - name: Configure SELinux
       shell:
-        "sudo semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'"
+        sudo semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'
     - name: Apply new SELinux file context to filesystem
       shell:
         "sudo restorecon -Rv /opt/wildfly/bin/"
