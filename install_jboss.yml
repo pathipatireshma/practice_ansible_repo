@@ -9,8 +9,8 @@
         - wget
         - curl
     - shell_commands:
-        - "sudo semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'"
-        - "sudo restorecon -Rv /opt/wildfly/bin/"
+        - "semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'"
+        - "restorecon -Rv /opt/wildfly/bin/"
 #    - wildfly_release_url:
 #        - ansible-galaxy collection install middleware_automation.wildfly
 #        - "https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.tar.gz"
