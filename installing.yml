@@ -9,7 +9,7 @@
         - wget
         - curl
     - shell_commands:
-        - "semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'"
+#        - "semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'"
         - "restorecon -Rv /opt/wildfly/bin/"
 #    - wildfly_release_url:
 #        - ansible-galaxy collection install middleware_automation.wildfly
