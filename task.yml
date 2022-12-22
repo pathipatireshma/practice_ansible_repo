@@ -1,19 +1,32 @@
 ---
-- name: Installing artifactory
-  hosts: new_web_group
+#- name: Installing artifactory
+#  hosts: new_web_group
+#  become: yes
+#  tasks:
+#    - name: downloading url
+#      get_url:
+#        url: "https://releases.jfrog.io/artifactory/artifactory-pro-rpms/jfrog-artifactory-pro/jfrog-artifactory-pro-[RELEASE].rpm"
+#        dest: ./artifactory-pro.rpm
+#        mode: '0755'
+#    - name: installing
+#      yum:
+#        name: artifactory-pro.rpm
+#        state: present
+#    - name: start artifactory
+#      service:
+#        name: artifactory.service
+#        state: started
+#        enabled: yes
+
+- name: Installing weblogic
+  hosts: localhost
   become: yes
+  gather_facts: true
+  vars:
+    - packages:
+        - java-11-openjdk-devel
   tasks:
-    - name: downloading url
-      get_url:
-        url: "https://releases.jfrog.io/artifactory/artifactory-pro-rpms/jfrog-artifactory-pro/jfrog-artifactory-pro-[RELEASE].rpm"
-        dest: ./artifactory-pro.rpm
-        mode: '0755'
-    - name: installing
+    - name: installing java package
       yum:
-        name: artifactory-pro.rpm
+        name: "{{packages}}"
         state: present
-    - name: start artifactory
-      service:
-        name: artifactory.service
-        state: started
-        enabled: yes
