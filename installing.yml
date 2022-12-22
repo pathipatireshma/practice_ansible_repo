@@ -99,6 +99,8 @@
         name: wildfly
         state: started
         enabled: true
+
+
 ---
 - name: Installing PostgreSQL
   hosts: localhost
