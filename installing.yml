@@ -101,7 +101,6 @@
         enabled: true
 
 
----
 - name: Installing PostgreSQL
   hosts: localhost
   become: yes
