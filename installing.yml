@@ -99,6 +99,37 @@
         name: wildfly
         state: started
         enabled: true
+---
 
+- name: Installing PostgreSQL
+  hosts: localhost
+  become: yes
+  gather_facts: true
+  vars:
+    - packages:
+        - postgresql
+        - postgresql-server
+        - postgresql-contrib
+        - postgresql-libs
+        - python3-psycopg2
+  tasks:
+    - name: installing packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ packages }}"
+    - name: checking if PostgreSql is initialized
+      stat:
+        path: "/var/lib/pgsql/data/pg_hba.conf"
+      register: postgres_data
+    - name: Initialize PostgreSQL
+      shell: "postgresql-setup initdb"
+      when: not postgres_data.stat.exists
+
+    - name: Start and enable service
+      service:
+        name: postgresql
+        state: started
+        enabled: true
 
 
