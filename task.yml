@@ -72,7 +72,7 @@
       lineinfile:
         path: .bash_profile
         line: "{{ item }}"
-        with_items: "{{ export_line }}"
         owner: oracle
         group: oinstall
         mode: "0755"
+      with_items: "{{ export_line }}"
