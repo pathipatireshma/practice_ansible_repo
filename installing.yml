@@ -7,7 +7,7 @@
     - packages:
         - java-11-openjdk-devel
         - wget
-        - curl
+#        - curl
     - shell_commands:
 #        - "semanage fcontext  -a -t bin_t  '/opt/wildfly/bin(/.*)?'"
         - "restorecon -Rv /opt/wildfly/bin/"

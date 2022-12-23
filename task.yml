@@ -25,8 +25,14 @@
   vars:
     - packages:
         - java-11-openjdk-devel
+    - shell_commands:
+        - "echo 'export JAVA_HOME=/usr/java/jdk-11.0.12' >> /etc/profile"
+        - "export JAVA_HOME=/usr/java/jdk-11.0.12"
   tasks:
     - name: installing java package
       yum:
         name: "{{packages}}"
         state: present
+    - name: setting the JAVA_HOME environment
+      shell: "{{ item }}"
+      with_items: "{{ shell_commands }}"
