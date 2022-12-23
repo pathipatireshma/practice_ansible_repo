@@ -71,7 +71,7 @@
     - name: .bash_profile for oracle user
       lineinfile:
         path: .bash_profile
-        line: "{{ item }}"
+        line: "{{ item.line }}"
         owner: oracle
         group: oinstall
         mode: "0755"
