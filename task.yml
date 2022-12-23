@@ -30,6 +30,13 @@
     - shell_commands:
         - "echo 'export JAVA_HOME=/usr/java/jdk-11.0.12' >> /etc/profile"
         - "export JAVA_HOME=/usr/java/jdk-11.0.12"
+    - export_line:
+        - "ORACLE_BASE=/u01/app/oracle"
+        - "ORACLE_HOME=$ORACLE_BASE/product/14.1.1"
+        - "MW_HOME=$ORACLE_HOME"
+        - "WLS_HOME=$MW_HOME/wlserver"
+        - "DOMAIN_BASE=$ORACLE_HOME/user_projects/domains"
+        - "DOMAIN_HOME=$DOMAIN_BASE/base_domain"
   tasks:
     - name: installing java package
       yum:
@@ -46,7 +53,7 @@
     - name: adding user
       user:
         name: oracle
-        password: oracle
+#        password: oracle
         group: oinstall
         state: present
         system: true
@@ -61,3 +68,11 @@
         owner: oracle
         group: oinstall
         mode: "0775"
+    - name: .bash_profile for oracle user
+      lineinfile:
+        path: .bash_profile
+        line: "{{ item }}"
+        with_items: "{{ export_line }}"
+        owner: oracle
+        group: oinstall
+        mode: "0755"

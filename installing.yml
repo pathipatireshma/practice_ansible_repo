@@ -160,7 +160,7 @@
     - name: adding user
       user:
         name: oracle
-        password: oracle
+#        password: oracle
         group: oinstall
         state: present
         system: true
