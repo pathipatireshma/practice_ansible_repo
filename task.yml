@@ -73,7 +73,7 @@
         path: .bash_profile
         owner: oracle
         group: oinstall
-        mode: "0755"
+        mode: "0775"
         line: "{{ item.line }}"
       with_items:
         - "ORACLE_BASE=/u01/app/oracle"
