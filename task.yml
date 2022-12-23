@@ -17,6 +17,7 @@
 #        name: artifactory.service
 #        state: started
 #        enabled: yes
+#   https://www.centlinux.com/2021/05/install-oracle-weblogic-server-14c-centos-rhel-8.html
 
 - name: Installing weblogic
   hosts: localhost
@@ -25,6 +26,7 @@
   vars:
     - packages:
         - java-11-openjdk-devel
+        - unzip
     - shell_commands:
         - "echo 'export JAVA_HOME=/usr/java/jdk-11.0.12' >> /etc/profile"
         - "export JAVA_HOME=/usr/java/jdk-11.0.12"
@@ -36,3 +38,26 @@
     - name: setting the JAVA_HOME environment
       shell: "{{ item }}"
       with_items: "{{ shell_commands }}"
+    - name: adding group
+      group:
+        name: oinstall
+        state: present
+        system: true
+    - name: adding user
+      user:
+        name: oracle
+        password: oracle
+        group: oinstall
+        state: present
+        system: true
+    - name: creating directory
+      file:
+        path: /u01/app/oracle/product/14.1.1
+        state: directory
+        mode: "0755"
+    - name: setting owner for /u01/app
+      file:
+        path: /u01/app
+        owner: oracle
+        group: oinstall
+        mode: "0775"
