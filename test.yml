@@ -17,8 +17,7 @@
       lineinfile:
         path: /home/centos/practice_ansible_repo/test_file1
         state: present
-        line: "{{ item }}"
-        with_items:
+        line:
           - {line: "hi"}
           - {line: "hello"}
 
