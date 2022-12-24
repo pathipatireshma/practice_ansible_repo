@@ -1,0 +1,10 @@
+---
+- name: test file
+  hosts: localhost
+  become: yes
+  gather_facts: true
+  tasks:
+    - name: creating a file
+      file:
+        path: /home/centos/test_file
+        state: touch
