@@ -71,10 +71,9 @@
     - name: .bash_profile for oracle user
       become_user: oracle
       lineinfile:
-        dest: .bash_profile
-#        owner: oracle
-#        group: oinstall
+        path: /home/oracle/.bash_profile
+        owner: oracle
+        group: oinstall
         mode: "0775"
-        line: "hello word"
-#        line: "{{ item.line }}"
-#      with_items: "{{ export_line }}"
+        line: "{{ item.line }}"
+      with_items: "{{ export_line }}"
