@@ -8,3 +8,8 @@
       file:
         path: /home/centos/test_file
         state: touch
+    - name: adding a line
+      lineinfile:
+        path: /home/centos/test_file
+        state: present
+        line: "hello world"
