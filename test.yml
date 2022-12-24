@@ -4,15 +4,15 @@
   become: yes
   gather_facts: true
   tasks:
-    - name: creating a file
-      file:
-        path: /home/centos/usr/local/bin/.bash_profile
-        owner: oracle
-        group: oinstall
-        state: touch
+#    - name: creating a file
+#      file:
+#        path: /home/centos/usr/local/bin/bash_profile
+#        owner: oracle
+#        group: oinstall
+#        state: touch
     - name: adding a line
       become_user: oracle
       lineinfile:
-        path: /home/centos/usr/local/bin/.bash_profile
+        path: /home/oracle/.bash_profile
         state: present
         line: "hello world"
