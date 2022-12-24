@@ -76,9 +76,9 @@
 #        group: oinstall
         mode: "0775"
 #        line: "hello world"
-        line: "{{ item }}"
+#        line: "{{ item }}"
 #      with_items: "{{ export_line }}"
-        with_items:
+        line:
           - "ORACLE_BASE=/u01/app/oracle"
           - "ORACLE_HOME=$ORACLE_BASE/product/14.1.1"
           - "MW_HOME=$ORACLE_HOME"
