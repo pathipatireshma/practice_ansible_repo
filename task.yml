@@ -72,8 +72,8 @@
       become_user: oracle
       lineinfile:
         dest: .bash_profile
-        owner: oracle
-        group: oinstall
+#        owner: oracle
+#        group: oinstall
         mode: "0775"
         line: "hello word"
 #        line: "{{ item.line }}"
