@@ -13,4 +13,4 @@
         path: /home/centos/practice_ansible_repo/test_file1
         state: present
         line:
-          - "hello '\n' world '\n' hi"
+          - hello '\n' world '\n' hi
