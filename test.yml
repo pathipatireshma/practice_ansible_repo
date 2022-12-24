@@ -3,11 +3,11 @@
   hosts: localhost
   become: yes
   gather_facts: true
-  vars:
-    lines:
-      - hi
-      - world
-      - hello
+#  vars:
+#    lines:
+#      - hi
+#      - world
+#      - hello
   tasks:
     - name: creating a file
       file:
@@ -17,5 +17,8 @@
       lineinfile:
         path: /home/centos/practice_ansible_repo/test_file1
         state: present
-        line: "{{ lines }}"
+        line: [
+          -hi
+          -world]
+
 
