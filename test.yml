@@ -7,6 +7,6 @@
     - name: adding a line
       become_user: oracle
       lineinfile:
-        path: /home/centos/usr/local/bin/.bash_profile
+        path: /home/centos/usr/local/bin/bash_profile
         state: present
         line: "hello world"
