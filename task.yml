@@ -30,13 +30,13 @@
     - shell_commands:
         - "echo 'export JAVA_HOME=/usr/java/jdk-11.0.12' >> /etc/profile"
         - "export JAVA_HOME=/usr/java/jdk-11.0.12"
-#    - export_line:
-#        - "ORACLE_BASE=/u01/app/oracle"
-#        - "ORACLE_HOME=$ORACLE_BASE/product/14.1.1"
-#        - "MW_HOME=$ORACLE_HOME"
-#        - "WLS_HOME=$MW_HOME/wlserver"
-#        - "DOMAIN_BASE=$ORACLE_HOME/user_projects/domains"
-#        - "DOMAIN_HOME=$DOMAIN_BASE/base_domain"
+    - export_line:
+        - "ORACLE_BASE=/u01/app/oracle"
+        - "ORACLE_HOME=$ORACLE_BASE/product/14.1.1"
+        - "MW_HOME=$ORACLE_HOME"
+        - "WLS_HOME=$MW_HOME/wlserver"
+        - "DOMAIN_BASE=$ORACLE_HOME/user_projects/domains"
+        - "DOMAIN_HOME=$DOMAIN_BASE/base_domain"
   tasks:
     - name: installing java package
       yum:
@@ -76,12 +76,12 @@
 #        group: oinstall
         mode: "0775"
 #        line: "hello world"
-#        line: "{{ item }}"
+        line: "{{ export_line }}"
 #      with_items: "{{ export_line }}"
-        line:
-          - "ORACLE_BASE=/u01/app/oracle" '\n'
-          - "ORACLE_HOME=$ORACLE_BASE/product/14.1.1"
-          - "MW_HOME=$ORACLE_HOME"
-          - "WLS_HOME=$MW_HOME/wlserver"
-          - "DOMAIN_BASE=$ORACLE_HOME/user_projects/domains"
-          - "DOMAIN_HOME=$DOMAIN_BASE/base_domain"
+#        line:
+#          - "ORACLE_BASE=/u01/app/oracle" '\n'
+#          - "ORACLE_HOME=$ORACLE_BASE/product/14.1.1"
+#          - "MW_HOME=$ORACLE_HOME"
+#          - "WLS_HOME=$MW_HOME/wlserver"
+#          - "DOMAIN_BASE=$ORACLE_HOME/user_projects/domains"
+#          - "DOMAIN_HOME=$DOMAIN_BASE/base_domain"
