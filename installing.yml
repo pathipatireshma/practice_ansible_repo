@@ -175,3 +175,16 @@
         owner: oracle
         group: oinstall
         mode: "0775"
+    - name: .bash_profile for oracle user
+      become_user: oracle
+      lineinfile:
+        path: /home/oracle/.bash_profile
+        mode: "0775"
+        line: "{{ item.line }}"
+      loop:
+        - { line: "export ORACLE_BASE=/u01/app/oracle" }
+        - { line: "export ORACLE_HOME=$ORACLE_BASE/product/14.1.1" }
+        - { line: "export MW_HOME=$ORACLE_HOME" }
+        - { line: "export WLS_HOME=$MW_HOME/wlserver" }
+        - { line: "export DOMAIN_BASE=$ORACLE_HOME/user_projects/domains" }
+        - { line: "export DOMAIN_HOME=$DOMAIN_BASE/base_domain" }

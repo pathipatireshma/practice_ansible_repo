@@ -72,10 +72,7 @@
       become_user: oracle
       lineinfile:
         path: /home/oracle/.bash_profile
-#        owner: oracle
-#        group: oinstall
         mode: "0775"
-#        line: "hello world"
         line: "{{ item.line }}"
       loop:
         - {line: "export ORACLE_BASE=/u01/app/oracle"}
