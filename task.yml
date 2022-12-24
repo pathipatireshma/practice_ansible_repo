@@ -72,8 +72,8 @@
       become_user: oracle
       lineinfile:
         path: /home/oracle/.bash_profile
-        owner: oracle
-        group: oinstall
+#        owner: oracle
+#        group: oinstall
         mode: "0775"
         line: "{{ item.line }}"
       with_items: "{{ export_line }}"
