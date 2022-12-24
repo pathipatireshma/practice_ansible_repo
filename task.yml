@@ -75,5 +75,6 @@
 #        owner: oracle
 #        group: oinstall
         mode: "0775"
-        line: "{{ item.line }}"
-      with_items: "{{ export_line }}"
+        line: "hello world"
+#        line: "{{ item.line }}"
+#      with_items: "{{ export_line }}"
