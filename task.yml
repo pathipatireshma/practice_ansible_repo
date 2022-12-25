@@ -85,7 +85,7 @@
       shell: ". ~/.bash_profile"
     - name: archiving zip
       ansible.builtin.archive:
-        path: fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip
+        path: fmw_14.1.1.0.0_wls
         dest: fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip
         format: zip
     - name: unarchiving zip
