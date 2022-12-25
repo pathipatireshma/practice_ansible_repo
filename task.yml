@@ -90,7 +90,7 @@
         format: zip
     - name: unarchiving zip
       ansible.builtin.unarchive:
-        src: fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip
+        src: fmw_14.1.1.0.0_wls/fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip
         dest: /home/centos
         remote_src: yes
 
