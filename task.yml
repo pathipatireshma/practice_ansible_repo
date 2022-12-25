@@ -92,6 +92,7 @@
       ansible.builtin.unarchive:
         src: fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip
         dest: /u01/app/oracle/product/14.1.1
+        remote_src: yes
 
 
 
