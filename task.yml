@@ -84,7 +84,7 @@
     - name: Executing .bash_profile
       shell: ". ~/.bash_profile"
     - name: unarchiving tar
-      ansible.builtin.unarchive:
+      ansible.builtin.archive:
         src: fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip
         dest: /u01/app/oracle/product/14.1.1
         remote_src: yes
