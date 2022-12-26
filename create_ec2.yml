@@ -3,12 +3,12 @@
   hosts: localhost
   become: yes
   gather_facts: true
-#  vars:
-#    ansible_python_interpreter: /usr/bin/python2.7
+  vars:
+    ansible_python_interpreter: /usr/local/lib/python3.7
   tasks:
-#    - name: facts
-#      set_fact:
-#        ansible_python_interpreter=/usr/bin/python2.7
+    - name: facts
+      set_fact:
+        ansible_python_interpreter=/usr/local/lib/python3.7
 ##        ansible_nodename: "{{ansible_nodename}}"
     - name: Get instances facts
       ec2_instance_facts:
