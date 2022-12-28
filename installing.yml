@@ -189,4 +189,5 @@
         - { line: "export DOMAIN_BASE=$ORACLE_HOME/user_projects/domains" }
         - { line: "export DOMAIN_HOME=$DOMAIN_BASE/base_domain" }
     - name: Executing .bash_profile
+      become_user: oracle
       shell: ". ~/.bash_profile"
