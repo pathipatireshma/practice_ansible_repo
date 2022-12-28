@@ -21,6 +21,7 @@
       loop:
         - {line: "hi"}
         - {line: "hello"}
+        - {line: "world"}
 
 
 
